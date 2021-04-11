@@ -9,7 +9,7 @@ const ReciperCard = ({recipe}) => {
                 <Image
                     src={'https:'+thumbnail.fields.file.url}
                     width={600}
-                    height={300}
+                    height={400}
                 />
             </div>
             <div className="content">
@@ -18,7 +18,7 @@ const ReciperCard = ({recipe}) => {
                     <p>Takes approx {cookingTime} mins to make</p>
                 </div>
                 <div className="actions">
-                    <Link href={'/recipes/' + slug}><a>Add to order</a></Link>
+                    <Link href={'/recipes/' + slug}><a>Cook this</a></Link>
                 </div>
             </div>
             <style jsx>{`
@@ -34,7 +34,7 @@ const ReciperCard = ({recipe}) => {
           left: -10px;
         }
         .info {
-          padding: 10px;
+          padding: 16px;
         }
         .info h4 {
           margin: 4px 0;
@@ -52,7 +52,7 @@ const ReciperCard = ({recipe}) => {
         .actions a {
           color: #fff;
           background: #f01b29;
-          padding: 16px 20px;
+          padding: 16px 24px;
           text-decoration: none;
         }
       `}</style>
