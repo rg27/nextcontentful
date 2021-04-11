@@ -10,7 +10,7 @@ const Layout = ({children}) => {
                             <span>ASPO</span>
                             <span>Food House</span>
                         </h1>
-                        <h2>Spread The Joy</h2>
+                        {/* <h2>Spread The Joy</h2> */}
                     </a>
                 </Link>
             </header>
