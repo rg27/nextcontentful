@@ -16,7 +16,7 @@ const Layout = ({children}) => {
             </header>
 
             <div className="page-content">
-                {children}
+                {children}  
             </div>
 
             <footer>
