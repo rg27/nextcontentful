@@ -1,30 +1,39 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import  {createClient} from 'contentful'
-import ReciperCard from '../components/RecipeCard'
+import { createClient } from 'contentful'
+import RecipeCard from '../components/RecipeCard'
 
-export async function getStaticProps(){
+export async function getStaticProps() {
+
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   })
 
-  const res = await client.getEntries({content_type:'recipe'})
-  return{
-    props:{
-      recipes: res.items
-    }
+  const res = await client.getEntries({ content_type: "recipe" })
+
+  return {
+    props: {
+      recipes: res.items,
+    },
+    revalidate: 1
   }
 }
 
-export default function Recipes({recipes}) {
-  console.log(recipes);
+export default function Recipes({ recipes }) {
+  console.log(recipes)
+
   return (
     <div className="recipe-list">
-      {recipes.map(recipe =>(
-        <ReciperCard key={recipe.sys.id} recipe={recipe}/>
+      {recipes.map(recipe => (
+        <RecipeCard key={recipe.sys.id} recipe={recipe} />
       ))}
-     
+
+      <style jsx>{`
+        .recipe-list {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-gap: 20px 60px;
+        }
+      `}</style>
     </div>
   )
 }

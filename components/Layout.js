@@ -22,8 +22,6 @@ const Layout = ({children}) => {
             <footer>
                 <p>Copyright 2021</p>
             </footer>
-
-           
         </div>
     );
 }
